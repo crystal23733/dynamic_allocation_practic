@@ -9,6 +9,7 @@ int main() {
    */
   int *a = new int(3);
   int *b = a;
+  *a = 5;
   cout << "a: " << *a << endl;
   cout << "b: " << *b << endl;
 
