@@ -1,2 +1,18 @@
+# Windows 실행 파일
 *.exe
+
+# macOS 실행 파일 (확장자 없음)
+two
+one
+
+# 또는 모든 실행 파일을 제외하려면:
+# *
+
+# 디버그 심볼 폴더
+*.dSYM/
+
+# VSCode 설정
 .vscode
+
+# macOS 시스템 파일
+.DS_Store
