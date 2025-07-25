@@ -8,20 +8,33 @@ class String {
       strData = NULL;
       len = 0;
     }
+
     String(const char *str) {
       len = strlen(str);
       strData = new char[len + 1];
       strcpy(strData, str);
     }
+
     String(const String &rhs) {
       len = rhs.len;
       strData = new char[len + 1];
       strcpy(strData, rhs.strData);
     }
+
     ~String() {
       if (strData) {
         delete[] strData;
       }
+    }
+
+    String &operator=(const String &rhs) {
+      if (this != &rhs) {
+        len = rhs.len;
+        delete[] strData;
+        strData = new char[len + 1];
+        strcpy(strData, rhs.strData);
+      }
+      return *this;
     }
 
     const char *GetStrData() const {
@@ -38,8 +51,11 @@ class String {
 };
 
 int main() {
+  // String s1("Hello");
+  // String s2 = s1;
   String s1("Hello");
-  String s2 = s1;
+  String s2("World");
+  s2 = s1;
 
   cout << s1.GetStrData() << endl;
   cout << s2.GetStrData() << endl;
