@@ -5,6 +5,7 @@
 two
 one
 three
+shallow_copy_one
 
 # 또는 모든 실행 파일을 제외하려면:
 # *
