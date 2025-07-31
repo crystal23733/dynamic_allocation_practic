@@ -24,6 +24,14 @@ class String {
       strcpy(strData, rhs.strData);
     }
 
+    // 이동 생성자
+    String(String &&rhs) {
+      cout << "String(String&&) : " << this << endl;
+      len = rhs.len;
+      strData = rhs.strData;
+      rhs.strData = NULL;
+    }
+
     ~String() {
       cout << "~String() : " << this << endl;
       release();
@@ -38,6 +46,15 @@ class String {
         alloc(len);
         strcpy(strData, rhs.strData);
       }
+      return *this;
+    }
+
+    // 이동 대입 연산자
+    String &operator=(String &&rhs) {
+      cout << "String &operator=(String&&) : " << this << endl;
+      len = rhs.len;
+      strData = rhs.strData;
+      rhs.strData = NULL;
       return *this;
     }
 
